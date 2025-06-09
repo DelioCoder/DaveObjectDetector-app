@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.davidpanda.DaveObjectDetector"
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +33,22 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to use the microphone.",
+          "speechRecognitionPermission": "Allow $(PRODUCT_NAME) to use speech recognition.",
+          "androidSpeechServicePackages": ["com.google.android.googlequicksearchbox"]
         }
       ]
     ],
