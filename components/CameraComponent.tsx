@@ -19,8 +19,11 @@ const CameraComponent = forwardRef<CameraComponentHandle, Props>(({ facing, togg
     takePhoto: async () => {
       if (cameraRef.current) {
         try {
-          const photo = await cameraRef.current.takePictureAsync();
-          console.log('📸 Foto capturada:', photo.uri);
+          const photo = await cameraRef.current.takePictureAsync({
+            quality: 0.5,
+            base64: false
+          });
+          console.log('Foto capturada:', photo.uri);
           return photo.uri;
         } catch (error) {
           console.error('❌ Error al tomar la foto:', error);
