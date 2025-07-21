@@ -1,5 +1,5 @@
 import { useDetectObjects } from '@/hooks/useUploadImage';
-import { translations } from '@/utils/translation';
+import { translate } from '@/utils/translation';
 import * as Speech from 'expo-speech';
 import {
     ExpoSpeechRecognitionModule,
@@ -36,7 +36,7 @@ const SpeechComponent = ({ setRecognizing, setIsListening, cameraRef, setDetecte
                         rate: 1.0,
                     });
                     const response = await detect(uri);
-                    const labels = response.objects.map((object) => translations[object.label] || object.label);
+                    const labels = response.objects.map(obj => translate(obj.label));
                     setDetectedLabels(labels);
 
                     const spokenText = labels.length > 0
@@ -47,8 +47,9 @@ const SpeechComponent = ({ setRecognizing, setIsListening, cameraRef, setDetecte
                         language: 'es-PE',
                         rate: 1.0,
                     });
+
                 } catch (error) {
-                    console.error('Error al detectar objetos:', error);
+                    console.error(error);
                     Speech.speak('Hubo un error al analizar la imagen', { language: 'es-PE' });
                 }
             }

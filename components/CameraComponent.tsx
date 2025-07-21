@@ -45,7 +45,7 @@ const CameraComponent = forwardRef<CameraComponentHandle, Props>(({ facing, togg
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="camera-container">
       <CameraView ref={cameraRef} style={styles.camera} facing={facing}>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
