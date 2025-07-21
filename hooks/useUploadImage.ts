@@ -10,7 +10,7 @@ export const useDetectObjects = () => {
       name: 'foto.jpg',
     } as any);
 
-    const response = await axios.post('https://xx64qbp1-8000.brs.devtunnels.ms/detect', formData, {
+    const response = await axios.post('https://daveobjectdetector-api.onrender.com/detect', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
